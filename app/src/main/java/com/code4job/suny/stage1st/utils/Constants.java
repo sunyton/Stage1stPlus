@@ -6,4 +6,5 @@ package com.code4job.suny.stage1st.utils;
 
 public class Constants {
     public static String lolUrl = "http://bbs.saraba1st.com/2b/forum-111-1.html";
+    public static String rootUrl = "http://bbs.saraba1st.com/2b/";
 }

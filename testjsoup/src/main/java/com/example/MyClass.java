@@ -17,16 +17,32 @@ public class MyClass {
 
 
     public static void main(String args[]) throws IOException {
-        Document doc = Jsoup.connect("http://bbs.saraba1st.com/2b/forum-111-1.html").get();
-        Elements elements = doc.select("tbody[id~=normalthread] > tr");
+//        Document doc = Jsoup.connect("http://bbs.saraba1st.com/2b/forum-111-1.html").get();
+//        Elements elements = doc.select("tbody[id~=normalthread] > tr");
+//        for (Element element : elements) {
+////            System.out.println(element.getElementsByTag("em").text().split(" ")[0]+" "+element.getElementsByTag("em").text().split(" ")[3]);
+////            System.out.println(element.getElementsByClass("s xst").attr("href"));
+////            System.out.println(element.getElementsByClass("xi2").text());
+////            System.out.println(element.getElementsByClass("by").text());
+//
+//
+//
+//        }
+
+
+        Document doc = Jsoup.connect("http://bbs.saraba1st.com/2b/thread-1159835-1-1.html").get();
+        Elements elements = doc.select("table[id~=pid]");
         for (Element element : elements) {
-            System.out.println(element.getElementsByTag("em").text().split(" ")[0]+" "+element.getElementsByTag("em").text().split(" ")[3]);
-            System.out.println(element.getElementsByClass("s xst").text());
-            System.out.println(element.getElementsByClass("xi2").text());
-            System.out.println(element.getElementsByClass("by").text());
+//            System.out.println(element.getElementsByClass("authi").text().split(" ")[0]+" "+element.getElementsByClass("authi").text().split(" ")[2]+" "+element.getElementsByClass("authi").text().split(" ")[3]);
+//            System.out.println(element.getElementsByClass("avtm"));
+            System.out.println(element.select("em[id~=authorposton]").text().substring(3, 18));
+
+//            System.out.println(element.getElementById("em[id~=authorposton]").text());
+//            System.out.println(element.getElementsByClass("t_f"));
 
 
         }
+
 
 //        测试时间
 //        Calendar calendar = Calendar.getInstance();

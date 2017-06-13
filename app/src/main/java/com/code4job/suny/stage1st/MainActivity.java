@@ -1,5 +1,6 @@
 package com.code4job.suny.stage1st;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private AVLoadingIndicatorView avi;
     private RecyclerView mRecyclerView;
     private Handler mHandler;
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 if (msg.what == 1) {
                     avi.hide();
                     mRecyclerView.setHasFixedSize(true);
-                    mRecyclerView.setAdapter(new ListAdapter(mListInfos));
+                    mRecyclerView.setAdapter(new ListAdapter(mListInfos, mContext));
+
 //                    mRecyclerView.addItemDecoration(new MyItemDecoration());
 
                 }
@@ -80,10 +83,11 @@ public class MainActivity extends AppCompatActivity {
             listInfo.setTopicName(element.getElementsByTag("em").text().split(" ")[0].substring(1, element.getElementsByTag("em").text().split(" ")[0].length() - 1));
             listInfo.setReadNum(element.getElementsByTag("em").text().split(" ")[3]);
             listInfo.setTpBody(element.getElementsByClass("s xst").text());
-            Log.i("TAG", element.getElementsByClass("s xst").text());
             listInfo.setReplyNum(element.getElementsByClass("xi2").text());
             listInfo.setUserName(element.getElementsByClass("by").text().split(" ")[0]);
             listInfo.setReplyDate(TimeUtils.handleTime(element.getElementsByClass("by").text().split(" ")[4] + " " + element.getElementsByClass("by").text().split(" ")[5]));
+            listInfo.setUrl(element.getElementsByClass("s xst").attr("href"));
+
             mListInfos.add(listInfo);
 
         }
