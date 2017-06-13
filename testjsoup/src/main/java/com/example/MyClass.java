@@ -35,10 +35,10 @@ public class MyClass {
         for (Element element : elements) {
 //            System.out.println(element.getElementsByClass("authi").text().split(" ")[0]+" "+element.getElementsByClass("authi").text().split(" ")[2]+" "+element.getElementsByClass("authi").text().split(" ")[3]);
 //            System.out.println(element.getElementsByClass("avtm"));
-            System.out.println(element.select("em[id~=authorposton]").text().substring(3, 18));
+//            System.out.println(element.select("em[id~=authorposton]").text().substring(3, 18));
 
 //            System.out.println(element.getElementById("em[id~=authorposton]").text());
-//            System.out.println(element.getElementsByClass("t_f"));
+            System.out.println(element.getElementsByClass("t_f"));
 
 
         }

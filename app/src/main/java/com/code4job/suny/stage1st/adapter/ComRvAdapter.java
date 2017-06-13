@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,10 +46,7 @@ public class ComRvAdapter extends RecyclerView.Adapter<ComRvAdapter.MyHolder> {
 
         holder.tvUser.setText(mList.get(position).getUserId());
         holder.tvTime.setText(mList.get(position).getTime());
-        RichText.from(mList.get(position).getComBody())
-                .borderSize(20)
-                .noImage(true)
-                .into(holder.tvBody);
+        holder.wvBody.loadDataWithBaseURL(null, mList.get(position).getComBody(), "text/html", "utf-8", null);
 
 //        holder.richText.text(mList.get(position).getComBody());
 
@@ -62,12 +60,13 @@ public class ComRvAdapter extends RecyclerView.Adapter<ComRvAdapter.MyHolder> {
     public class MyHolder extends RecyclerView.ViewHolder {
 
         ImageView mImageView;
-        TextView tvUser,tvTime, tvBody;
+        TextView tvUser, tvTime;
+        WebView wvBody;
 
         public MyHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.avator);
-            tvBody = (TextView) itemView.findViewById(R.id.tv_body);
+            wvBody = (WebView) itemView.findViewById(R.id.wv_body);
             tvTime = (TextView) itemView.findViewById(R.id.tv_time);
             tvUser = (TextView) itemView.findViewById(R.id.tv_user);
         }
