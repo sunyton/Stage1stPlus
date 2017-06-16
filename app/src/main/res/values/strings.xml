@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Stage1st+</string>
+    <array name="topic_new">
+        <item>页游S1官方联运</item>
+        <item>炉石传说</item>
+        <item>DOTA</item>
+        <item>手游页游</item>
+        <item>英雄联盟(LOL)</item>
+        <item>新网游综合讨论区</item>
+    </array>
+    <array name="topic">
+
+        <item>游戏论坛</item>
+        <item>欧美动漫</item>
+        <item>动漫论坛</item>
+        <item>模玩专区</item>
+        <item>影视论坛</item>
+        <item>音乐论坛</item>
+        <item>PC数码</item>
+        <item>文史沙龙</item>
+        <item>彼岸文化</item>
+        <item>八卦体育</item>
+        <item>外野</item>
+        <item>二手交易区</item>
+        <item>内野</item>
+    </array>
+
 </resources>

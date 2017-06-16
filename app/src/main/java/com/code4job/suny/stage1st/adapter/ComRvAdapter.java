@@ -46,6 +46,7 @@ public class ComRvAdapter extends RecyclerView.Adapter<ComRvAdapter.MyHolder> {
 
         holder.tvUser.setText(mList.get(position).getUserId());
         holder.tvTime.setText(mList.get(position).getTime());
+        holder.wvBody.getSettings().setBlockNetworkImage(false);
         holder.wvBody.loadDataWithBaseURL(null, mList.get(position).getComBody(), "text/html", "utf-8", null);
 
 //        holder.richText.text(mList.get(position).getComBody());

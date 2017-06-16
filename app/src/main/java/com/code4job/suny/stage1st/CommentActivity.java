@@ -2,6 +2,7 @@ package com.code4job.suny.stage1st;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +11,9 @@ import android.util.Log;
 
 import com.code4job.suny.stage1st.adapter.ComRvAdapter;
 import com.code4job.suny.stage1st.bean.CommentInfo;
+import com.code4job.suny.stage1st.bean.ListInfo;
 import com.code4job.suny.stage1st.utils.TimeUtils;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -26,6 +29,7 @@ public class CommentActivity extends AppCompatActivity {
     private List<CommentInfo> mList = new ArrayList<>();
     private String msg;
     private RecyclerView rv;
+    private AVLoadingIndicatorView avi;
 
 
 
@@ -34,11 +38,13 @@ public class CommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
+        avi = (AVLoadingIndicatorView) findViewById(R.id.com_wait);
+        avi.show();
+
         Intent intent = getIntent();
         msg = "http://bbs.saraba1st.com/2b/" + intent.getStringExtra("url");
         rv = (RecyclerView) findViewById(R.id.rv_comment);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setHasFixedSize(true);
 
         new Thread(new Runnable() {
             @Override
@@ -48,6 +54,8 @@ public class CommentActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            avi.hide();
+                            rv.setHasFixedSize(true);
                             rv.setAdapter(new ComRvAdapter(mList));
                         }
                     });
@@ -80,5 +88,27 @@ public class CommentActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    class MyTask extends AsyncTask<String, Void, List<ListInfo>> {
+
+
+        @Override
+        protected void onPreExecute() {
+            avi.show();
+        }
+
+        @Override
+        protected List<ListInfo> doInBackground(String... params) {
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<ListInfo> list) {
+            super.onPostExecute(list);
+        }
     }
 }
