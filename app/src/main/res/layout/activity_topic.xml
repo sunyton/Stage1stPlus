@@ -5,15 +5,26 @@
               android:orientation="vertical"
                 xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tl"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+
+        >
 
 
 
-    <fragment
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:id="@+id/fg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:name="com.code4job.suny.stage1st.fragment.FragmentLove"
-        android:tag="topicfragment"
+        android:orientation="vertical"
         />
 
 
