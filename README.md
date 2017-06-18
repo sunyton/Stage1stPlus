@@ -12,4 +12,5 @@ stage1st客户端<br>
 2.Recyclerview + Cardview 界面<br>
 3.等待动画：https://github.com/81813780/AVLoadingIndicatorView<br>
 V0.1<br>
-添加板块，收藏
+添加板块，收藏<br>
+由于注册会员限制，不能评论，下次更新添加用户个人资料和消息通知功能
