@@ -11,3 +11,5 @@ stage1st客户端<br>
 1.Jsoup抓取页面信息<br>
 2.Recyclerview + Cardview 界面<br>
 3.等待动画：https://github.com/81813780/AVLoadingIndicatorView<br>
+V0.1<br>
+添加板块，收藏
