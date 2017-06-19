@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class Spider {
 
 
 
-    public static List<ListInfo> getInfo(String url) throws IOException {
+    public static List<ListInfo> getInfo(String url) throws IOException, ParseException {
 
         List<ListInfo> mListInfos = new ArrayList<>();
         Document doc = Jsoup.connect(url).get();

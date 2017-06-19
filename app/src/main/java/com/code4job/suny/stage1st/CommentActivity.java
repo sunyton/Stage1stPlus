@@ -21,6 +21,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,8 @@ public class CommentActivity extends AppCompatActivity {
 
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
@@ -72,7 +75,7 @@ public class CommentActivity extends AppCompatActivity {
 
 
 
-    public void getComment(String msg) throws IOException {
+    public void getComment(String msg) throws IOException, ParseException {
 
         Document doc = Jsoup.connect(msg).get();
         Elements elements = doc.select("table[id~=pid]");

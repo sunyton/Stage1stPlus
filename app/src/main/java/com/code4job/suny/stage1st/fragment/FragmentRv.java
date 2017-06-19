@@ -20,6 +20,7 @@ import com.code4job.suny.stage1st.utils.Spider;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +73,8 @@ public class FragmentRv extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
 
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
             return lists ;
         }

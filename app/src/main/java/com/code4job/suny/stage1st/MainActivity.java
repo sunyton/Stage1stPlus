@@ -21,6 +21,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                     getInfo();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
                 msg.what = 1;
                 mHandler.sendMessage(msg);
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void getInfo() throws IOException {
+    public void getInfo() throws IOException, ParseException {
         Document doc = Jsoup.connect("http://bbs.saraba1st.com/2b/forum-111-1.html").get();
         Elements elements = doc.select("tbody[id~=normalthread] > tr");
         for (Element element : elements) {

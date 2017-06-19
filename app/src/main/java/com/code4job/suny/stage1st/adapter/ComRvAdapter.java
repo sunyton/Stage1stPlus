@@ -3,9 +3,11 @@ package com.code4job.suny.stage1st.adapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,8 +48,13 @@ public class ComRvAdapter extends RecyclerView.Adapter<ComRvAdapter.MyHolder> {
 
         holder.tvUser.setText(mList.get(position).getUserId());
         holder.tvTime.setText(mList.get(position).getTime());
-        holder.wvBody.getSettings().setBlockNetworkImage(false);
-        holder.wvBody.loadDataWithBaseURL(null, mList.get(position).getComBody(), "text/html", "utf-8", null);
+
+        String flText = "<head><style>img{max-width:100%;height:auto;}</style></head>\n"+mList.get(position).getComBody().replace("file", "src");
+        Log.i("ceshi",flText);
+//        RichText.from(flText).resetSize(false).into(holder.tvBody);
+//        holder.wvBody.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        holder.wvBody.loadDataWithBaseURL(null, flText, "text/html", "utf-8", null);
+
 
 //        holder.richText.text(mList.get(position).getComBody());
 
@@ -67,9 +74,10 @@ public class ComRvAdapter extends RecyclerView.Adapter<ComRvAdapter.MyHolder> {
         public MyHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.avator);
-            wvBody = (WebView) itemView.findViewById(R.id.wv_body);
+            wvBody = (WebView) itemView.findViewById(R.id.tv_body);
             tvTime = (TextView) itemView.findViewById(R.id.tv_time);
             tvUser = (TextView) itemView.findViewById(R.id.tv_user);
+//            tvBody = (TextView) itemView.findViewById(R.id.tv_body);
         }
     }
 

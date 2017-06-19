@@ -66,13 +66,14 @@
 
 
             <WebView
-                android:id="@+id/wv_body"
+                android:id="@+id/tv_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/avator"
                 android:layout_marginTop="12dp"
-                android:textSize="16dp"
+
                 />
+
 
 
 
